@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# 💸 SplitEase — Split Anything, Fairly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A free online tool to split any shared expense fairly among a group of people — trips, rent, groceries, subscriptions, movies, shopping, and more.
 
-## Available Scripts
+🔗 **Live Tool:** https://splitease-beryl.vercel.app
+📁 **GitHub Repo:** https://github.com/MahakDalwani/splitease
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 👩‍💻 Built By
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Mahak Dalwani** · mahakdalwani1@gmail.com
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ What This Tool Does
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Most bill splitting tools are built only for restaurants. SplitEase works for every kind of shared expense — a road trip with friends, monthly rent with flatmates, a group shopping haul, or a shared Netflix subscription.
 
-### `npm run build`
+**Core Features:**
+- Add any number of people to the split
+- Add multiple expenses and assign each one to specific people
+- Tip % and Tax % sliders that split proportionally (not equally)
+- Smart Debt Simplification — minimizes the number of transactions needed to settle up
+- Copy summary to share with the group
+- Clean, mobile-friendly design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**The Unique Feature — Smart Debt Simplifier:**
+Instead of everyone paying everyone else, the algorithm calculates the minimum number of transactions needed to settle all debts. For example, instead of 5 transactions back and forth, it reduces it to just 2. This is the same logic used internally by apps like Splitwise.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧠 How It Works
 
-### `npm run eject`
+**Step 1 — Add People**
+Enter the names of everyone involved in the expense.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Step 2 — Add Expenses**
+Add each item or expense with its amount. Assign it to the specific people who share that expense.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Step 3 — Set Tip & Tax**
+Use the sliders to add optional tip and tax percentages. These are split proportionally — whoever spent more pays more tip and tax.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Step 4 — Calculate & Split**
+Click the button to see each person's total and the minimum transactions needed to settle up.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ⚙️ Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React** — UI and state management
+- **CSS** — custom styling, no frameworks
+- **LocalStorage** — history saved in browser
+- **Vercel** — free deployment
+- **GitHub** — version control
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🧮 The Math Logic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Item splitting:**
+sharePerPerson = item.price / number of assigned people
 
-### Analyzing the Bundle Size
+**Proportional tip and tax:**
+proportion = person's total / subtotal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+person's tip = total tip amount × proportion
 
-### Making a Progressive Web App
+**Debt simplification algorithm:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1.Calculate average each person should pay
+2.Find each person's net balance (positive = owes, negative = owed)
+3.Sort debtors and creditors largest first
+4.Match biggest debtor with biggest creditor
+5.Repeat until all balances are zero
+---
 
-### Advanced Configuration
+## 🚀 Run Locally
+git clone https://github.com/MahakDalwani/splitease.git
+cd splitease
+npm install
+npm start
+Open http://localhost:3000 in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 📁 Project Structure
+splitease/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+├── public/
 
-### `npm run build` fails to minify
+│   └── index.html
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+├── src/
+
+│   ├── Components/
+
+│   │   ├── Navbar.js
+
+│   │   ├── Hero.js
+
+│   │   ├── PeopleSection.js
+
+│   │   ├── ItemsSection.js
+
+│   │   ├── SettingsSection.js
+
+│   │   └── ResultsSection.js
+
+│   ├── logic/
+
+│   │   └── calculate.js
+
+│   ├── App.js
+
+│   └── App.css
+
+└── package.json
+
+---
+
+## 📌 Personal Note
+
+I've personally been in situations where splitting a group trip or shared grocery run turned into a long confusing conversation. Everyone uses different UPI apps, people forget who paid what, and the mental math gets messy. I built SplitEase to solve exactly that — one clean page, enter the details, done.
+
+---
+
+*Built for Digital Heroes Trial Task · digitalheroesco.com*
